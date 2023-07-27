@@ -1,0 +1,188 @@
+1- Post - http://localhost:8000/api/products/
+
+Req.body = {
+    "name": "Product 1",
+    "description": "This is the first product.",
+    "price": 100,
+    "variants": [
+      {
+        "name": "Variant 1A",
+        "sku": "SKU-001A",
+        "additionalCost": 10,
+        "stockCount": 50
+      },
+      {
+        "name": "Variant 1B",
+        "sku": "SKU-001B",
+        "additionalCost": 15,
+        "stockCount": 30
+      }
+    ]
+}
+
+
+2- GET - http://localhost:8000/api/products/
+
+output = [
+    {
+        "_id": "64c24f5fa950ff3c67ae3024",
+        "name": "Product 1",
+        "description": "This is the first product.",
+        "price": 100,
+        "variants": [
+            {
+                "name": "Variant 1A",
+                "sku": "SKU-001A",
+                "additionalCost": 10,
+                "stockCount": 50,
+                "_id": "64c24f60a950ff3c67ae3026"
+            },
+            {
+                "name": "Variant 1B",
+                "sku": "SKU-001B",
+                "additionalCost": 15,
+                "stockCount": 30,
+                "_id": "64c24f60a950ff3c67ae3028"
+            }
+        ],
+        "__v": 1
+    },
+    {
+        "_id": "64c25399d84155d37e50844f",
+        "name": "Product 2",
+        "description": "This is the sec product.",
+        "price": 100,
+        "variants": [
+            {
+                "name": "Variant 2A",
+                "sku": "SKU-001A",
+                "additionalCost": 10,
+                "stockCount": 50,
+                "_id": "64c25399d84155d37e508451"
+            },
+            {
+                "name": "Variant 2B",
+                "sku": "SKU-001B",
+                "additionalCost": 15,
+                "stockCount": 30,
+                "_id": "64c25399d84155d37e508453"
+            }
+        ],
+        "__v": 1
+    }
+]
+
+3- GET - http://localhost:8000/api/products/64c24f5fa950ff3c67ae3024
+
+output = {
+    "_id": "64c24f5fa950ff3c67ae3024",
+    "name": "Product 1",
+    "description": "This is the first product.",
+    "price": 100,
+    "variants": [
+        {
+            "name": "Variant 1A",
+            "sku": "SKU-001A",
+            "additionalCost": 10,
+            "stockCount": 50,
+            "_id": "64c24f60a950ff3c67ae3026"
+        },
+        {
+            "name": "Variant 1B",
+            "sku": "SKU-001B",
+            "additionalCost": 15,
+            "stockCount": 30,
+            "_id": "64c24f60a950ff3c67ae3028"
+        }
+    ],
+    "__v": 1
+}
+
+4- DELETE - http://localhost:8000/api/products/64c24f5fa950ff3c67ae3024
+
+5- PUT - http://localhost:8000/api/products/64c2585688283a2835cd9ddd
+req.body ={
+    "price": 500
+}
+
+return {
+    "_id": "64c2585688283a2835cd9ddd",
+    "name": "Product 2",
+    "description": "This is the sec product.",
+    "price": 500,
+    "variants": [
+        {
+            "name": "Variant 2A",
+            "sku": "SKU-001A",
+            "additionalCost": 10,
+            "stockCount": 50,
+            "_id": "64c2585688283a2835cd9ddf"
+        },
+        {
+            "name": "Variant 2B",
+            "sku": "SKU-001B",
+            "additionalCost": 15,
+            "stockCount": 30,
+            "_id": "64c2585688283a2835cd9de1"
+        }
+    ],
+    "__v": 1
+}
+
+6- GET - http://localhost:8000/api/products/search?q="Product 2"
+output= [
+    {
+        "_id": "64c25399d84155d37e50844f",
+        "name": "Product 2",
+        "description": "This is the sec product.",
+        "price": 500,
+        "variants": [],
+        "__v": 2
+    },
+    {
+        "_id": "64c2585688283a2835cd9ddd",
+        "name": "Product 2",
+        "description": "This is the first product.",
+        "price": 500,
+        "variants": [
+            {
+                "name": "Variant 2A",
+                "sku": "SKU-001A",
+                "additionalCost": 10,
+                "stockCount": 50,
+                "_id": "64c2585688283a2835cd9ddf"
+            },
+            {
+                "name": "Variant 2B",
+                "sku": "SKU-001B",
+                "additionalCost": 15,
+                "stockCount": 30,
+                "_id": "64c2585688283a2835cd9de1"
+            }
+        ],
+        "__v": 1
+    },
+    {
+        "_id": "64c25cc419c1c9ecf5a6d748",
+        "name": "Product 2",
+        "description": "This is the sec product.",
+        "price": 100,
+        "variants": [
+            {
+                "name": "Variant 2A",
+                "sku": "SKU-001A",
+                "additionalCost": 10,
+                "stockCount": 50,
+                "_id": "64c25cc419c1c9ecf5a6d74a"
+            },
+            {
+                "name": "Variant 2B",
+                "sku": "SKU-001B",
+                "additionalCost": 15,
+                "stockCount": 30,
+                "_id": "64c25cc419c1c9ecf5a6d74c"
+            }
+        ],
+        "__v": 1
+    }
+]
